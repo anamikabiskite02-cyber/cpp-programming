@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class Shape
+{
+public:
+    virtual void area()
+    {
+        cout << "Area of Shape";
+    }
+};
+
+class Square : public Shape
+{
+    float side;
+
+public:
+    Square(float s)
+    {
+        side = s;
+    }
+
+    void area() override
+    {
+        cout << "Area of Square = " << side * side;
+    }
+};
+
+int main()
+{
+    Square s(20);
+
+    Shape *ptr;
+    ptr = &s;
+
+    ptr->area();
+
+    return 0;
+}
